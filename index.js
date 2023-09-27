@@ -16,10 +16,21 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(dosyaYolu) {
+  if (dosyaYolu.indexOf("/") === -1) {
+    return dosyaYolu;
+  }
+
+  const yolParcalari = dosyaYolu.split("/");
+
+  return yolParcalari[yolParcalari.length - 1];
 }
 
+console.log(
+  dosyaAdiniBul("Görev 1:", "C:/Users/johnsmith/Music/Beethoven_5.mp3")
+);
+console.log(dosyaAdiniBul("Beethoven_5.mp3"));
+console.log(dosyaAdiniBul(""));
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,9 +49,21 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayiDizisi) {
+  if (sayiDizisi.length === 0) {
+    return null;
+  }
+
+  let toplam = 0;
+  for (let i = 0; i < sayiDizisi.length; i++) {
+    toplam += sayiDizisi[i];
+  }
+
+  const ortalama = toplam / sayiDizisi.length;
+  return ortalama;
 }
+
+console.log(ortalamaBul([50, 26, 153, 7]));
 
 /*
   GÖREV 3
